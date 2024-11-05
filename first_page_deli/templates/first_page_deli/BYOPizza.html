@@ -1,0 +1,114 @@
+{% extends 'first_page_deli/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Build Your Own Pizza
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Build Your Own Pizza</h1>
+        <form method="POST" action="{% url 'build_your_own_pizza' %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+            
+            <!-- Pizza Options Section -->
+            <div class="mb-4">
+                <h4 class="mb-3">Pizza Options</h4>
+                <div class="form-group">
+                    <label for="crust">Choose Crust:</label>
+                    <select name="crust" id="crust" class="form-control" required>
+                        <option value="" disabled selected>Select crust</option>
+                        {% for crust_value, crust_label in crusts %}
+                            <option value="{{ crust_value }}">{{ crust_label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="size">Choose Size:</label>
+                    <select name="size" id="size" class="form-control" required>
+                        <option value="" disabled selected>Select size</option>
+                        {% for size_value, size_label in sizes %}
+                            <option value="{{ size_value }}">{{ size_label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sauce">Choose Sauce:</label>
+                    <select name="sauce" id="sauce" class="form-control" required>
+                        <option value="" disabled selected>Select sauce</option>
+                        {% for sauce_value, sauce_label in sauces %}
+                            <option value="{{ sauce_value }}">{{ sauce_label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" required>
+                </div>
+            </div>
+
+            <!-- Toppings Section -->
+            <div class="mb-4">
+                <h4 class="mb-3">Toppings</h4>
+                <div class="form-group">
+                    <label>Select Meats:</label>
+                    <div class="form-check">
+                        {% for meat in meats %}
+                            <div class="checkbox">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="meats" value="{{ meat.id }}"> {{ meat.meat_name }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Select Cheese:</label>
+                    <div class="form-check">
+                        {% for cheese_value, cheese_label in cheeses %}
+                            <div class="checkbox">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="cheese" value="{{ cheese_value }}"> {{ cheese_label }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Select Toppings:</label>
+                    <div class="form-check">
+                        {% for topping in toppings %}
+                            <div class="checkbox">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="toppings" value="{{ topping.id }}"> {{ topping.topping_name }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="mb-4">
+                <h4 class="mb-3">Contact Information</h4>
+                <div class="form-group">
+                    <label for="customer_name">Full Name:</label>
+                    <input type="text" name="customer_name" id="customer_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="tel" name="phone_number" id="phone_number" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-success btn-lg w-100">Place Order</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

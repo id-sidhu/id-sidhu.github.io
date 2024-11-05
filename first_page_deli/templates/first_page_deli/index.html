@@ -1,0 +1,101 @@
+{% extends 'first_page_deli/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Welcome to Otter Co-op Deli Webpage
+{% endblock %}
+
+{% block body %}
+    <h1>Deli</h1>
+    <form action="{% url 'search_view' %}" method="get">
+        <input type="text" name="q" placeholder="Search">
+        <button type="submit">Search</button>
+    </form>    
+<!--
+    <div id="Shelf Inventory" class="section">
+        <h2>Shelf Inventory</h2>
+        <ul>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='HotCase' %}">HotCase</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='SandwichEndI' %}">Sandwich End - I</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='SandwichEndII' %}">Sandwich End - II</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='ServiceCaseMeats' %}">Service Case Meats</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='ServiceCaseSalads' %}">Service Case Salads</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='PackedMeatI' %}">Packed Meat - I</a></li> 
+            <li><a href="{% url 'shelf_detail_view' shelf_name='PackedMeatII' %}">Packed Meat - II</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='SaladsEnd' %}">Salads End</a></li> 
+            <li><a href="{% url 'shelf_detail_view' shelf_name='PizzaAndSalads' %}">Pizzas/Salads</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='SoupsAndMeals' %}">Soups/Meals</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='EntertainmentEnd' %}">Entertainment End</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='Pasta' %}">Pasta</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='Dips' %}">Dips</a></li> 
+            <li><a href="{% url 'shelf_detail_view' shelf_name='CheeseBoard' %}">Cheese Board</a></li>
+        </ul>
+    </div>
+
+    <div id="On Sale Now" class="section">
+        <h2>On Sale Now</h2>
+        <ul>
+            <li><a href="{% url 'on_sale_view' shelf_name='OnSaleMeats' %}">Meats</a></li>
+            <li>Salads</li>
+            <li>Cheese</li>
+            <li>Soups</li>
+            <li>Others</li>
+        </ul>
+    </div>
+-->
+    <div id="Pizzas" class="section">
+        <h2>Pizzas</h2>
+        <ul>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='Pizza' %}">Hawaiian</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='Pizza' %}">Margherita</a></li>
+            <li><a href="{% url 'shelf_detail_view' shelf_name='Pizza' %}">Pepperoni</a></li>
+            <li><a href="{% url 'build_your_own_pizza' %}">Build Your Own</a></li>
+        </ul>
+    </div>
+
+    <!-- <div id="Tray Details" class="section">
+        <h2>Tray Details</h2>
+        <ul>
+            <li>Meat Lovers</li>
+            <li>Gourmet Meat Lovers</li>
+            <li>Classic Meat & Cheese</li>
+            <li>Gourmet Meat & Cheese</li>
+            <li>Classic Cheese Bites</li>
+            <li>Gourmet Sliced Cheese</li>
+            <li>Vegetable Tray</li>
+            <li>Fruit Tray</li>
+            <li>Tea Sandwich Platter</li>
+            <li>Premium Sandwich Platter</li>
+            <li>All Wrapped Up Platter</li>
+            <li>In-Store Roasted Meats</li>
+            <li>Italian Meat Selections</li>
+            <li>Mediterranean Charcuterie</li>
+            <li>Cheeseball - Sweet or Savory</li>
+            <li>Brie Platter - Sweet or Savory</li>
+            <li>Artisanal Inspired Cheeses</li>
+            <li>Wings & Chicken Tenders</li>
+            <li>Pastry Tray 11 Piece</li>
+            <li>Cookie Delight Tray 900g</li>
+            <li>Cookie Delight Tray 1.7kg</li>
+            <li>The Cake Tray 1.95 kg</li>
+            <li>The Cake Tray 3.9 kg</li>
+            <li>Morning Start Tray 1.26 kg</li>
+            <li>Morning Start Tray 2.5kg</li>
+            <li>Coffee Time Tray 1.4kg</li>
+            <li>Coffee Time Tray 2.9 kg</li>
+        </ul>
+    </div> -->
+
+    <div class="section" id="Grill">
+        <h2>Grill</h2>
+        <ul>
+            <li>Regular Size Breakfast</li>
+            <li>Otter-Size Breakfast</li>
+            <li>Clubhouse Sandwich & Fries</li>
+            <li>Breakfast Baegel</li>
+            <li>Grilled Cheese Sandwich</li>
+            <li>Cheese Burger & Fries</li>
+            <li>Others..</li>
+        </ul>
+    </div>
+{% endblock %}

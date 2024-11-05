@@ -1,0 +1,25 @@
+{% extends 'first_page_deli/layout.html' %}
+
+{% block title %}
+    Search Results for "{{ query }}"
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results for "{{ query }}"</h1>
+
+    {% if results %}
+        <ul>
+            {% for item in results %}
+                <li>
+                    <a href="{% url 'shelf_detail_view' shelf_name=item.get_class_name %}">
+                        {{ item.item_name }} - {{ item.description }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found for "{{ query }}".</p>
+    {% endif %}
+
+    <a href="{% url 'index' %}">Go back to the homepage</a>
+{% endblock %}

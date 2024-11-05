@@ -1,0 +1,19 @@
+{% extends 'first_page_deli/layout.html' %}
+{% load static %}
+
+{% block title %}
+    {{shelf_name}} Items
+{% endblock %}
+
+{% block body %}
+    <h1>{{shelf_name}} Items</h1>
+    <ol>
+        {% for item in items %}
+            <li><b>{{ item.item_name }} - ${{ item.price }} </b></li>
+            <p> {{ item.description }}</p>
+        {% endfor %}
+    </ol>
+    {% if not items %}
+        <p>No items available in this shelf.</p>
+    {% endif %}
+{% endblock %}
